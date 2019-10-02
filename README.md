@@ -91,3 +91,14 @@ Provided IP (10.5.3.5) is not provided in the local database (local.csv)
 "172.16.2.3","IR","Iran, Islamic Republic of","Isfahan","Isfahan","+03:30",32.653900,51.666000
 ```
 
+
+
+# How to build the package:
+It's written in Go and I used https://github.com/ip2location/ip2location-go package to extract Information from IP2Location Lite Package. So to build executable from this source code download the repo and run the further command:
+
+```
+https://github.com/ip2location/ip2location-go
+```
+
+
+
