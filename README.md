@@ -97,7 +97,7 @@ Provided IP (10.5.3.5) is not provided in the local database (local.csv)
 It's written in Go and I used https://github.com/ip2location/ip2location-go package to extract Information from IP2Location Lite Package. So to build executable from this source code download the repo and run the further command:
 
 ```
-https://github.com/ip2location/ip2location-go
+go build .\ip2location.go .\utils.go
 ```
 
 
