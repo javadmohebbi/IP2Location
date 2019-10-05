@@ -32,7 +32,7 @@ This terminal application will use the IP2Location Lite Package to fetch the inf
 ```
 
 
-# How to build the package:
+# How to build?
 It's written in Go and I used https://github.com/ip2location/ip2location-go package to extract Information from IP2Location Lite Package. So to build executable from this source code download the repo and run the further command:
 
 ```
@@ -65,10 +65,10 @@ Currently compiled executables are:
 
 
 
-# How to Use this tool
+# How to Use?
 You need to download the Compiled executables from the ** build ** folder or build it from the source. After that, You need to download the latest Lite Package using ```-dl``` option.
 
-## To get the latest Lite DB
+## Get the latest Lite DB
 Run the further command and it will download the latest Lite DB and place it in ```%ProgramFiles\IP2Location\db\%``` (windows) or ```\etc\ip2location\db``` (Linux).
 You need to run it as root (linux) or system administrator (windows)
 ```
@@ -90,7 +90,7 @@ Download Finished
 The local database file format must be like this: CountryShort,CountryLong,State,City,Timezone,Lat,Lon,StartIP,EndIP
 **For now, IP2Location Local database is not supports IPv6.**
 
-**A sample for local database**
+**A sample for local CSV database**
 ```
 IR,"Iran, Islamic Republic of",Tehran,Tehran,+03:30,35.6892,51.3890,172.16.50.1,172.16.50.254
 IR,"Iran, Islamic Republic of",Markazi,Arak,+03:30,34.0954,49.7013,10.0.0.20,10.0.0.30
@@ -124,7 +124,7 @@ After -t option you can use country_short, country_long, host or all as a tag fo
 ip2location -i 8.8.8.8 -t host
 
 Output is:
-ip2loc,host="8.8.8.8" latitude=37.405991,longitude=-122.078514,packetSent=3,packetRecv=3,packetLost=0.000000,minRtt=85.7711,avgRtt=90.0008,maxRtt=98.4593,online=1
+ip2loc,online=1,host="8.8.8.8" latitude=37.405991,longitude=-122.078514,packetSent=3,packetRecv=3,packetLost=0.000000,minRtt=85.7711,avgRtt=90.0008,maxRtt=98.4593,online=1
 ```
 
 
