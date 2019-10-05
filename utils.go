@@ -9,7 +9,7 @@ import (
 	"net"
 	"os"
 	"strconv"
-
+	"strings"
 	"time"
 
 	"github.com/ip2location/ip2location-go"
@@ -182,15 +182,15 @@ func PrintTelegraf(tag *string, ip *string, ip2loc IP2Location, mes *string, tm 
 		isHostOnline = 1
 	}
 
-	if *tag == "country_long" {
+	if *tag == "countryLongTag" {
 		tagFieldValue = ip2loc.CountryLong
-	} else if *tag == "country_short" {
+	} else if *tag == "countryShortTag" {
 		tagFieldValue = ip2loc.CountryShort
-	} else if *tag == "city" {
+	} else if *tag == "CityTag" {
 		tagFieldValue = ip2loc.City
-	} else if *tag == "state" {
+	} else if *tag == "StateTag" {
 		tagFieldValue = ip2loc.Region
-	} else if *tag == "timezone" {
+	} else if *tag == "TimeZoneTag" {
 		tagFieldValue = ip2loc.Timezone
 	} else if *tag == "host" {
 		tagFieldValue = *ip
@@ -202,10 +202,20 @@ func PrintTelegraf(tag *string, ip *string, ip2loc IP2Location, mes *string, tm 
 	avgRTT := float64(stats.AvgRtt) / float64(time.Millisecond)
 	maxRTT := float64(stats.MaxRtt) / float64(time.Millisecond)
 
+	// Escaping Space and Comma
+	tgCL := strings.Replace(ip2loc.CountryLong, ",", " ", -1)
+	tgCL = strings.Replace(tgCL, " ", "_", -1)
+	tgCS := strings.Replace(ip2loc.CountryShort, " ", "-", -1)
+	tgCT := strings.Replace(ip2loc.City, ",", " ", -1)
+	tgCT = strings.Replace(tgCT, " ", "-", -1)
+	tgRG := strings.Replace(ip2loc.Region, ",", " ", -1)
+	tgRG = strings.Replace(tgRG, " ", "-", -1)
+	tgFieldVal := strings.Replace(tagFieldValue, ",", " ", -1)
+	tgFieldVal = strings.Replace(tgFieldVal, " ", "-", -1)
 	if tagFieldValue != "" {
-		fmt.Printf("%s,%s=\"%s\" country_long=\"%s\",country_short=\"%s\",city=\"%s\",state=\"%s\",timezone=\"%s\",latitude=%f,longitude=%f,packetSent=%d,packetRecv=%d,packetLost=%f,minRtt=%v,avgRtt=%v,maxRtt=%v,online=%d", *mes, *tag, tagFieldValue, ip2loc.CountryLong, ip2loc.CountryShort, ip2loc.City, ip2loc.Region, ip2loc.Timezone, ip2loc.Lat, ip2loc.Lon, stats.PacketsSent, stats.PacketsRecv, stats.PacketLoss, minRTT, avgRTT, maxRTT, isHostOnline)
+		fmt.Printf("%s,%s=%s country_long=\"%s\",country_short=\"%s\",city=\"%s\",state=\"%s\",timezone=\"%s\",latitude=%f,longitude=%f,packetSent=%d,packetRecv=%d,packetLost=%f,minRtt=%v,avgRtt=%v,maxRtt=%v,online=%d", *mes, *tag, tgFieldVal, ip2loc.CountryLong, ip2loc.CountryShort, ip2loc.City, ip2loc.Region, ip2loc.Timezone, ip2loc.Lat, ip2loc.Lon, stats.PacketsSent, stats.PacketsRecv, stats.PacketLoss, minRTT, avgRTT, maxRTT, isHostOnline)
 	} else {
-		fmt.Printf("%s,host=\"%s\",countryLong=\"%s\",countryShort=\"%s\",City=\"%s\",State=\"%s\",Timezone=\"%s\" country_long=\"%s\",country_short=\"%s\",city=\"%s\",state=\"%s\",timezone=\"%s\",latitude=%f,longitude=%f,packetSent=%d,packetRecv=%d,packetLost=%f,minRtt=%v,avgRtt=%v,maxRtt=%v,online=%d", *mes, *ip, ip2loc.CountryLong, ip2loc.CountryShort, ip2loc.City, ip2loc.Region, ip2loc.Timezone, ip2loc.CountryLong, ip2loc.CountryShort, ip2loc.City, ip2loc.Region, ip2loc.Timezone, ip2loc.Lat, ip2loc.Lon, stats.PacketsSent, stats.PacketsRecv, stats.PacketLoss, minRTT, avgRTT, maxRTT, isHostOnline)
+		fmt.Printf("%s,host=%s,countryLongTag=%s,countryShortTag=%s,CityTag=%s,StateTag=%s,TimeZoneTag=%s country_long=\"%s\",country_short=\"%s\",city=\"%s\",state=\"%s\",timezone=\"%s\",latitude=%f,longitude=%f,packetSent=%d,packetRecv=%d,packetLost=%f,minRtt=%v,avgRtt=%v,maxRtt=%v,online=%d", *mes, *ip, tgCL, tgCS, tgCT, tgRG, ip2loc.Timezone, ip2loc.CountryLong, ip2loc.CountryShort, ip2loc.City, ip2loc.Region, ip2loc.Timezone, ip2loc.Lat, ip2loc.Lon, stats.PacketsSent, stats.PacketsRecv, stats.PacketLoss, minRTT, avgRTT, maxRTT, isHostOnline)
 	}
 	fmt.Printf("\n")
 
