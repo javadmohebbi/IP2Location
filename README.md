@@ -60,7 +60,7 @@ Currently compiled executables are:
       - An alternate solution is: [Read Go-Ping Doc](https://github.com/sparrc/go-ping#note-on-linux-support)
       ```
             sudo sysctl -w net.ipv4.ping_group_range="0   2147483647"
-            setcap cap_net_raw=+ep /path/to/ip2location
+            sudo setcap cap_net_raw=+ep /path/to/ip2location
       ```
 
 
