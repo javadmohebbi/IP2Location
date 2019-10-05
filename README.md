@@ -42,7 +42,7 @@ go get github.com/dustin/go-humanize
 go build .\ip2location.go .\utils.go .\update.go
 ```
 
-# Download the binary
+# Download binaries
 Currently compiled executables are:
 1. **Windows**:
       - [ip2location.exe (i386)](https://github.com/javadmohebbi/IP2Location/raw/master/dist/windows/386/ip2location.exe)
