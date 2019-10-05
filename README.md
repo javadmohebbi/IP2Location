@@ -39,7 +39,7 @@ It's written in Go and I used https://github.com/ip2location/ip2location-go pack
 go get github.com/ip2location/ip2location-go
 go get github.com/sparrc/go-ping
 go get github.com/dustin/go-humanize
-go build .\ip2location.go .\utils.go
+go build .\ip2location.go .\utils.go .\update.go
 ```
 
 # Download the binary
