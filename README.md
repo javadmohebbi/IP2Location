@@ -32,6 +32,36 @@ This terminal application will use the IP2Location Lite Package to fetch the inf
 ```
 
 
+# How to build the package:
+It's written in Go and I used https://github.com/ip2location/ip2location-go package to extract Information from IP2Location Lite Package. So to build executable from this source code download the repo and run the further command:
+
+```
+go get github.com/ip2location/ip2location-go
+go get github.com/sparrc/go-ping
+go get github.com/dustin/go-humanize
+go build .\ip2location.go .\utils.go
+```
+
+# How to Use this tool
+You need to download the Compiled executables from the ** build ** folder or build it from the source. After that, You need to download the latest Lite Package using ```-dl``` option.
+
+## To get the latest Lite DB
+Run the further command and it will download the latest Lite DB and place it in ```./db/IP2LOCATION-LITE-DB11.IPV6.BIN```.
+```
+./ip2location -dl
+
+*** Outout ***
+
+Download Started
+Downloading... 24 MB complete
+Unzipped:
+db\IP2LOCATION-LITE-DB11.IPV6.BIN
+Download Finished
+```
+
+
+
+
 # Local Database Format
 The local database file format must be like this: CountryShort,CountryLong,State,City,Timezone,Lat,Lon,StartIP,EndIP
 **For now, IP2Location Local database is not supports IPv6.**
@@ -93,33 +123,3 @@ Provided IP (10.0.0.6) is not provided in the local database (local.csv)
 Provided IP (10.5.3.5) is not provided in the local database (local.csv)
 "172.16.2.3","IR","Iran, Islamic Republic of","Isfahan","Isfahan","+03:30",32.653900,51.666000
 ```
-
-
-
-# How to build the package:
-It's written in Go and I used https://github.com/ip2location/ip2location-go package to extract Information from IP2Location Lite Package. So to build executable from this source code download the repo and run the further command:
-
-```
-go get github.com/ip2location/ip2location-go
-go get github.com/sparrc/go-ping
-go get github.com/dustin/go-humanize
-go build .\ip2location.go .\utils.go
-```
-
-# How to Use this tool
-First of all you need to build the binnary using the above guide. After build it, You need to download the latest Lite Package using ```-dl``` option.
-
-## To get the latest Lite DB
-Run the further command and it will download the latest Lite DB and place it in ```./db/IP2LOCATION-LITE-DB11.IPV6.BIN```.
-```
-./ip2location -dl
-
-*** Outout ***
-
-Download Started
-Downloading... 24 MB complete
-Unzipped:
-db\IP2LOCATION-LITE-DB11.IPV6.BIN
-Download Finished
-```
-
