@@ -9,6 +9,7 @@ import (
 	"net"
 	"os"
 	"strconv"
+
 	"time"
 
 	"github.com/ip2location/ip2location-go"
@@ -20,6 +21,8 @@ type IP2Location struct {
 	CountryShort, CountryLong, Region, City, State, Timezone string
 	Lat, Lon                                                 float32
 }
+
+const dbFileName string = "IP2LOCATION-LITE-DB11.IPV6.BIN"
 
 // validateArgsAndCallFuncs - Validate Input Arguments and Call the needed Functions
 func validateArgsAndCallFuncs() {
@@ -34,11 +37,17 @@ func validateArgsAndCallFuncs() {
 	argMetric := flag.String("m", "ip2loc", "(Optional) Measurement name for InfluxDB. Default value is ip2loc. Use it with -t option")
 	argTimeout := flag.String("timeout", "10", "(Optional) ICMP requet timeout in seconds.")
 	argLocalDB := flag.String("local", "", "(Optional) Local CSV database for Private IPs. Only IPv4 is supported. It MUST be in this format: CountryShort,CountryLong,State,City,Timezone,Lat,Lon,StartIP,EndIP")
+	argDownload := flag.Bool("dl", false, "Download the latest lite ip2location database and replace it with the current and exit")
 
 	flag.Parse()
 
 	if *argVer {
 		fmt.Printf("\n%s\n", version)
+		os.Exit(0)
+	}
+
+	if *argDownload {
+		DownloadDatabase(dbFileName)
 		os.Exit(0)
 	}
 
@@ -197,7 +206,7 @@ func PrintTelegraf(tag *string, ip *string, ip2loc IP2Location, mes *string, tm 
 
 // GetIPAddressInfo - Fetch Address Info
 func GetIPAddressInfo(ip *string) (IP2Location, bool) {
-	ip2location.Open("./IP2LOCATION-LITE-DB11.IPV6.BIN")
+	ip2location.Open("./db/" + dbFileName)
 
 	results := ip2location.Get_all(*ip)
 
