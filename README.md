@@ -10,7 +10,7 @@ This terminal application will use the IP2Location Lite Package to fetch the inf
 - When you use -t option, It will ping the provided IP and let you know the result based on each host
 
 
-# Command line input paramentes:
+# Command line input parameters:
 ```
   -c string
         (Optional) Print it in CSV format. Accepted values are comma and tab. This option can NOT be used with -t option.
