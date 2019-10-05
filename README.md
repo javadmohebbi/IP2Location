@@ -45,14 +45,14 @@ go build .\ip2location.go .\utils.go
 # Download the binary
 Currently compiled executables are:
 1. **Windows**:
-      - [ip2location.exe (i386)] (https://github.com/javadmohebbi/IP2Location/raw/master/dist/windows/386/ip2location.exe)
-      - [ip2location.exe (amd64)] (https://github.com/javadmohebbi/IP2Location/raw/master/dist/windows/amd64/ip2location.exe)
+      - [ip2location.exe (i386)](https://github.com/javadmohebbi/IP2Location/raw/master/dist/windows/386/ip2location.exe)
+      - [ip2location.exe (amd64)](https://github.com/javadmohebbi/IP2Location/raw/master/dist/windows/amd64/ip2location.exe)
 1. **Linux**:
-      - [ip2location (i386)] (https://github.com/javadmohebbi/IP2Location/raw/master/dist/linux/386/ip2location)
-      - [ip2location (amd64)] (https://github.com/javadmohebbi/IP2Location/raw/master/dist/linux/amd64/ip2location)
+      - [ip2location (i386)](https://github.com/javadmohebbi/IP2Location/raw/master/dist/linux/386/ip2location)
+      - [ip2location (amd64)](https://github.com/javadmohebbi/IP2Location/raw/master/dist/linux/amd64/ip2location)
 1. **Mac**:
-      - [ip2location (i386)] (https://github.com/javadmohebbi/IP2Location/raw/master/dist/darwin/386/ip2location)
-      - [ip2location (amd64)] (https://github.com/javadmohebbi/IP2Location/raw/master/dist/darwin/amd64/ip2location)
+      - [ip2location (i386)](https://github.com/javadmohebbi/IP2Location/raw/master/dist/darwin/386/ip2location)
+      - [ip2location (amd64)](https://github.com/javadmohebbi/IP2Location/raw/master/dist/darwin/amd64/ip2location)
 
 ### NOTE for Linux Users
 1. After download the executable you need to let it to be executable by running ```chmod +x ip2location```.
