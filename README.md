@@ -14,6 +14,8 @@ This terminal application will use the IP2Location Lite Package to fetch the inf
 ```
   -c string
         (Optional) Print it in CSV format. Accepted values are comma and tab. This option can NOT be used with -t option.
+  -dl
+        Download the latest lite ip2location database and replace it with the current and exit
   -i string
         (Could be Mandatory) IP Address (v4 or v6). FQND or Domain Name is not supported yet... ;-)
   -list string
@@ -25,9 +27,10 @@ This terminal application will use the IP2Location Lite Package to fetch the inf
   -t string
         (Optional) Prepare it for InfluxDB Telegraf [[inputs.exec]]. It also will send 3 ICMP requets to the IP provided by the user to check the host availability. Accepted values are country_short, country_long, host or all  as a tag for InfluxDB. This option can NOT be used with -c option. Get more information about [[inputs.exec]] here: https://github.com/influxdata/telegraf/tree/master/plugins/inputs/exec
   -timeout string
-        (Optional) ICMP requet timeout in seconds. (default "10s")
+        (Optional) ICMP requet timeout in seconds. (default "10")
   -v    Print Version & exit.
 ```
+
 
 # Local Database Format
 The local database file format must be like this: CountryShort,CountryLong,State,City,Timezone,Lat,Lon,StartIP,EndIP
@@ -103,5 +106,20 @@ go get github.com/dustin/go-humanize
 go build .\ip2location.go .\utils.go
 ```
 
+# How to Use this tool
+First of all you need to build the binnary using the above guide. After build it, You need to download the latest Lite Package using ```-dl``` option.
 
+## To get the latest Lite DB
+Run the further command and it will download the latest Lite DB and place it in ```./db/IP2LOCATION-LITE-DB11.IPV6.BIN```.
+```
+./ip2location -dl
+
+*** Outout ***
+
+Download Started
+Downloading... 24 MB complete
+Unzipped:
+db\IP2LOCATION-LITE-DB11.IPV6.BIN
+Download Finished
+```
 
