@@ -25,11 +25,13 @@ type IP2Location struct {
 const dbFileName string = "IP2LOCATION-LITE-DB11.IPV6.BIN"
 
 var pathofExe string = ""
+var tmpPath string = ""
 
 // validateArgsAndCallFuncs - Validate Input Arguments and Call the needed Functions
-func validateArgsAndCallFuncs(dir string) {
+func validateArgsAndCallFuncs(dir string, tmpDir string) {
 
-	pathofExe = dir + "/"
+	pathofExe = dir
+	tmpPath = tmpDir
 
 	version := "IP2Location | Version 0.0.1 | http://mjmohebbi.com \n\nLite Location Database by https://ip2location.com\n\n"
 
@@ -52,7 +54,7 @@ func validateArgsAndCallFuncs(dir string) {
 	}
 
 	if *argDownload {
-		DownloadDatabase(dbFileName, pathofExe)
+		DownloadDatabase(dbFileName, pathofExe, tmpPath)
 		os.Exit(0)
 	}
 

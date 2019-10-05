@@ -37,11 +37,11 @@ func (wc WriteCounter) PrintProgress() {
 }
 
 // DownloadDatabase - Download the lastest version of IP2Location
-func DownloadDatabase(dbFileName string, path string) {
+func DownloadDatabase(dbFileName string, path string, tmpPath string) {
 	fmt.Println("Download Started")
 
 	fileURL := "http://download.mjmohebbi.com/ip2location-lite/" + dbFileName + ".ZIP"
-	err := DownloadFile(fileURL, path+dbFileName)
+	err := DownloadFile(fileURL, tmpPath, path)
 	if err != nil {
 		panic(err)
 	}
@@ -50,11 +50,11 @@ func DownloadDatabase(dbFileName string, path string) {
 }
 
 // DownloadFile - Download File and rename it to the one that we want
-func DownloadFile(url string, filepath string) error {
+func DownloadFile(url string, tmpPath string, filepath string) error {
 
 	// Create the file with .tmp extension, so that we won't overwrite a
 	// file until it's downloaded fully
-	out, err := os.Create(filepath + ".tmp")
+	out, err := os.Create(tmpPath + dbFileName + ".tmp")
 	if err != nil {
 		return err
 	}
@@ -82,11 +82,12 @@ func DownloadFile(url string, filepath string) error {
 	// if err != nil {
 	// 	return err
 	// }
-	files, err := Unzip(filepath+".tmp", "db")
+	// fmt.Println(filepath)
+	files, err := Unzip(tmpPath+dbFileName+".tmp", filepath+"/db")
 	if err != nil {
 		log.Fatal(err)
 	}
-	err = os.Remove(filepath + ".tmp")
+	err = os.Remove(tmpPath + dbFileName + ".tmp")
 
 	fmt.Println("Unzipped:\n" + strings.Join(files, "\n"))
 

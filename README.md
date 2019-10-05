@@ -69,9 +69,10 @@ Currently compiled executables are:
 You need to download the Compiled executables from the ** build ** folder or build it from the source. After that, You need to download the latest Lite Package using ```-dl``` option.
 
 ## To get the latest Lite DB
-Run the further command and it will download the latest Lite DB and place it in ```./db/IP2LOCATION-LITE-DB11.IPV6.BIN```.
+Run the further command and it will download the latest Lite DB and place it in ```%ProgramFiles\IP2Location\db\%``` (windows) or ```\etc\ip2location\db``` (Linux).
+You need to run it as root (linux) or system administrator (windows)
 ```
-./ip2location -dl
+# ip2location -dl
 
 *** Outout ***
 
