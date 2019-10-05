@@ -37,11 +37,11 @@ func (wc WriteCounter) PrintProgress() {
 }
 
 // DownloadDatabase - Download the lastest version of IP2Location
-func DownloadDatabase(dbFileName string) {
+func DownloadDatabase(dbFileName string, path string) {
 	fmt.Println("Download Started")
 
 	fileURL := "http://download.mjmohebbi.com/ip2location-lite/" + dbFileName + ".ZIP"
-	err := DownloadFile(fileURL, dbFileName)
+	err := DownloadFile(fileURL, path+dbFileName)
 	if err != nil {
 		panic(err)
 	}
@@ -82,11 +82,11 @@ func DownloadFile(url string, filepath string) error {
 	// if err != nil {
 	// 	return err
 	// }
-	files, err := Unzip("./"+filepath+".tmp", "db")
+	files, err := Unzip(filepath+".tmp", "db")
 	if err != nil {
 		log.Fatal(err)
 	}
-	err = os.Remove("./" + filepath + ".tmp")
+	err = os.Remove(filepath + ".tmp")
 
 	fmt.Println("Unzipped:\n" + strings.Join(files, "\n"))
 

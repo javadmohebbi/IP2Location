@@ -24,8 +24,13 @@ type IP2Location struct {
 
 const dbFileName string = "IP2LOCATION-LITE-DB11.IPV6.BIN"
 
+var pathofExe string = ""
+
 // validateArgsAndCallFuncs - Validate Input Arguments and Call the needed Functions
-func validateArgsAndCallFuncs() {
+func validateArgsAndCallFuncs(dir string) {
+
+	pathofExe = dir + "/"
+
 	version := "IP2Location | Version 0.0.1 | http://mjmohebbi.com \n\nLite Location Database by https://ip2location.com\n\n"
 
 	argIP := flag.String("i", "", "(Could be Mandatory) IP Address (v4 or v6). FQND or Domain Name is not supported yet... ;-) ")
@@ -47,7 +52,7 @@ func validateArgsAndCallFuncs() {
 	}
 
 	if *argDownload {
-		DownloadDatabase(dbFileName)
+		DownloadDatabase(dbFileName, pathofExe)
 		os.Exit(0)
 	}
 
@@ -206,7 +211,7 @@ func PrintTelegraf(tag *string, ip *string, ip2loc IP2Location, mes *string, tm 
 
 // GetIPAddressInfo - Fetch Address Info
 func GetIPAddressInfo(ip *string) (IP2Location, bool) {
-	ip2location.Open("./db/" + dbFileName)
+	ip2location.Open(pathofExe + "db/" + dbFileName)
 
 	results := ip2location.Get_all(*ip)
 
