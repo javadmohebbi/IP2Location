@@ -42,6 +42,29 @@ go get github.com/dustin/go-humanize
 go build .\ip2location.go .\utils.go
 ```
 
+# Download the binary
+Currently compiled executables are:
+1. **Windows**:
+      - [ip2location.exe (i386)] (https://github.com/javadmohebbi/IP2Location/blob/master/dist/windows/386/ip2location.exe)
+      - [ip2location.exe (amd64)] (https://github.com/javadmohebbi/IP2Location/blob/master/dist/windows/amd64/ip2location.exe)
+1. **Linux**:
+      - [ip2location (i386)] (https://github.com/javadmohebbi/IP2Location/blob/master/dist/linux/386/ip2location)
+      - [ip2location (amd64)] (https://github.com/javadmohebbi/IP2Location/blob/master/dist/linux/amd64/ip2location)
+1. **Mac**:
+      - [ip2location (i386)] (https://github.com/javadmohebbi/IP2Location/blob/master/dist/darwin/386/ip2location)
+      - [ip2location (amd64)] (https://github.com/javadmohebbi/IP2Location/blob/master/dist/darwin/amd64/ip2location)
+
+### NOTE for Linux Users
+1. After download the executable you need to let it to be executable by running ```chmod +x ip2location```.
+2. One of the other thing is if you use ```-t``` option, ip2location will try to send 3 icmp request to provided IP address. So you need to run it as **root**. 
+      - An alternate solution is: [Read Go-Ping Doc](https://github.com/sparrc/go-ping#note-on-linux-support)
+      ```
+            sudo sysctl -w net.ipv4.ping_group_range="0   2147483647"
+            setcap cap_net_raw=+ep /path/to/ip2location
+      ```
+
+
+
 # How to Use this tool
 You need to download the Compiled executables from the ** build ** folder or build it from the source. After that, You need to download the latest Lite Package using ```-dl``` option.
 
