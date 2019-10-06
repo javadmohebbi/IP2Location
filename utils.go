@@ -213,9 +213,9 @@ func PrintTelegraf(tag *string, ip *string, ip2loc IP2Location, mes *string, tm 
 	tgFieldVal := strings.Replace(tagFieldValue, ",", " ", -1)
 	tgFieldVal = strings.Replace(tgFieldVal, " ", "-", -1)
 	if tagFieldValue != "" {
-		fmt.Printf("%s,online=%d,%s=%s country_long=\"%s\",country_short=\"%s\",city=\"%s\",state=\"%s\",timezone=\"%s\",latitude=%f,longitude=%f,packetSent=%d,packetRecv=%d,packetLost=%f,minRtt=%v,avgRtt=%v,maxRtt=%v,online=%d", *mes, isHostOnline, *tag, tgFieldVal, ip2loc.CountryLong, ip2loc.CountryShort, ip2loc.City, ip2loc.Region, ip2loc.Timezone, ip2loc.Lat, ip2loc.Lon, stats.PacketsSent, stats.PacketsRecv, stats.PacketLoss, minRTT, avgRTT, maxRTT, isHostOnline)
+		fmt.Printf("%s,onlineTag=%d,%s=%s country_long=\"%s\",country_short=\"%s\",city=\"%s\",state=\"%s\",timezone=\"%s\",latitude=%f,longitude=%f,packetSent=%d,packetRecv=%d,packetLost=%f,minRtt=%v,avgRtt=%v,maxRtt=%v,online=%d", *mes, isHostOnline, *tag, tgFieldVal, ip2loc.CountryLong, ip2loc.CountryShort, ip2loc.City, ip2loc.Region, ip2loc.Timezone, ip2loc.Lat, ip2loc.Lon, stats.PacketsSent, stats.PacketsRecv, stats.PacketLoss, minRTT, avgRTT, maxRTT, isHostOnline)
 	} else {
-		fmt.Printf("%s,online=%d,host=%s,countryLongTag=%s,countryShortTag=%s,CityTag=%s,StateTag=%s,TimeZoneTag=%s country_long=\"%s\",country_short=\"%s\",city=\"%s\",state=\"%s\",timezone=\"%s\",latitude=%f,longitude=%f,packetSent=%d,packetRecv=%d,packetLost=%f,minRtt=%v,avgRtt=%v,maxRtt=%v,online=%d", *mes, isHostOnline, *ip, tgCL, tgCS, tgCT, tgRG, ip2loc.Timezone, ip2loc.CountryLong, ip2loc.CountryShort, ip2loc.City, ip2loc.Region, ip2loc.Timezone, ip2loc.Lat, ip2loc.Lon, stats.PacketsSent, stats.PacketsRecv, stats.PacketLoss, minRTT, avgRTT, maxRTT, isHostOnline)
+		fmt.Printf("%s,onlineTag=%d,host=%s,countryLongTag=%s,countryShortTag=%s,CityTag=%s,StateTag=%s,TimeZoneTag=%s country_long=\"%s\",country_short=\"%s\",city=\"%s\",state=\"%s\",timezone=\"%s\",latitude=%f,longitude=%f,packetSent=%d,packetRecv=%d,packetLost=%f,minRtt=%v,avgRtt=%v,maxRtt=%v,online=%d", *mes, isHostOnline, *ip, tgCL, tgCS, tgCT, tgRG, ip2loc.Timezone, ip2loc.CountryLong, ip2loc.CountryShort, ip2loc.City, ip2loc.Region, ip2loc.Timezone, ip2loc.Lat, ip2loc.Lon, stats.PacketsSent, stats.PacketsRecv, stats.PacketLoss, minRTT, avgRTT, maxRTT, isHostOnline)
 	}
 	fmt.Printf("\n")
 
