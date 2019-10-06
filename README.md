@@ -73,7 +73,7 @@ You need to download the Compiled executables from the ** build ** folder or bui
 
 ## Get the latest Lite DB
 Run the further command and it will download the latest Lite DB and place it in ```%ProgramFiles\IP2Location\db\%``` (windows) or ```\etc\ip2location\db``` (Linux).
-You need to run it as root (linux) or system administrator (windows)
+You need to run it as **root** (linux) or system **administrator** (windows)
 ```
 # ip2location -dl
 
