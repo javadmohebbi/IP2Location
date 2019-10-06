@@ -150,3 +150,15 @@ Provided IP (10.0.0.6) is not provided in the local database (local.csv)
 Provided IP (10.5.3.5) is not provided in the local database (local.csv)
 "172.16.2.3","IR","Iran, Islamic Republic of","Isfahan","Isfahan","+03:30",32.653900,51.666000
 ```
+
+
+
+# Grafana Dashboard
+I've made a simple dashboard for using this tool to monitor your hosts. It might give you a chance to get the idea behind IP2Location Tool. You might want to make more effective dashboards and share it with others. 
+
+You can download this dashboard from Grafana website. Here is the link to the dashboard: [Grafana IP2Location Dashbaord](https://grafana.com/grafana/dashboards/10964) 
+
+ After you import this dashbaord to your Grafana, You might see something like the further Screenshot:
+
+![IP2Location + IP Monitor Simple Dashboard](http://mjmohebbi.com/public/img/uploads/upload__10-06-2019-054447.png)
+![IP2Location + IP Monitor Simple Dashboard](http://mjmohebbi.com/public/img/uploads/upload__10-06-2019-054514.png)
