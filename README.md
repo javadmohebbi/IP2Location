@@ -126,8 +126,8 @@ After -t option you can use country_short, country_long, host or all as a tag fo
 ```
 ip2location -i 8.8.8.8 -t host
 
-Output is:
-ip2loc,online=1,host="8.8.8.8" latitude=37.405991,longitude=-122.078514,packetSent=3,packetRecv=3,packetLost=0.000000,minRtt=85.7711,avgRtt=90.0008,maxRtt=98.4593,online=1
+*** Output ***
+ip2loc,onlineTag=1,host=8.8.8.8 country_long="United States",country_short="US",city="Mountain View",state="California",timezone="-07:00",latitude=37.405991,longitude=-122.078514,packetSent=3,packetRecv=3,packetLost=0.000000,minRtt=82.852251,avgRtt=83.647769,maxRtt=84.680822,online=1
 ```
 
 
