@@ -4,6 +4,9 @@ A terminal application which use to get information about IP addresses based on 
 # About
 This terminal application will use the IP2Location Lite Package to fetch the information about provided IP addresses. If the provided IPs are private addresses, you can provide a CSV file to fetch information from your local database. 
 
+If you want to use it to monitor your Hosts using InfluxDB, Telegraf & Grafana [this article](http://mjmohebbi.com/en/blog/How-to-monitor-IP-addresses-Using-InfluxDB-Telegraf-and-Grafana) might lead you ;-)
+
+
 # Output
 - It can output data as a CSV (-c csv) or TSV (-c tab)
 - If you want to store the information in InfluxDB, you can use -t option and define it as a [[input.exec]] in telegraf.conf. Read more about Telegraf [[input.exec]] here: https://github.com/influxdata/telegraf/tree/master/plugins/inputs/exec
