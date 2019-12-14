@@ -110,7 +110,9 @@ To test your configuration, you can run this command:
 ```
 sudo -u telegraf telegraf --test --config /etc/telegraf/telegraf.d/ip2location-telegraf.conf
 
-*** Output must be like this: ***
+Output must be like this:
+
+
 2019-10-06T06:57:34Z I! Starting Telegraf 1.11.1
 > ip2loc,CityTag=Mountain-View,StateTag=California,TimeZoneTag=-07:00,countryLongTag=United_States,countryShortTag=US,host=8.8.8.8,onlineTag=1 avgRtt=84.102891,city="Mountain View",country_long="United States",country_short="US",latitude=37.405991,longitude=-122.078514,maxRtt=85.904206,minRtt=82.71992,online=1,packetLost=0,packetRecv=3,packetSent=3,state="California",timezone="-07:00" 1570345087000000000
 > ip2loc,CityTag=Tehran,StateTag=Tehran,TimeZoneTag=+03:30,countryLongTag=Iran__Islamic_Republic_of,countryShortTag=IR,host=172.16.50.143,onlineTag=1 avgRtt=0.527725,city="Tehran",country_long="Iran, Islamic Republic of",country_short="IR",latitude=35.689201,longitude=51.389,maxRtt=0.699684,minRtt=0.404185,online=1,packetLost=0,packetRecv=3,packetSent=3,state="Tehran",timezone="+03:30" 1570345087000000000
