@@ -2,9 +2,9 @@
 A terminal application which use to get information about IP addresses based on IP2Location.com Lite Database
 
 # About
-This terminal application will use the IP2Location Lite Package to fetch the information about provided IP addresses. If the provided IPs are private addresses, you can provide a CSV file to fetch information from your local database. 
+This terminal application will use the IP2Location Lite Package to fetch the information about provided IP addresses. If the provided IPs are private addresses, you can provide a CSV file to fetch information from your local database.
 
-You can find a how to guide in [this article](http://mjmohebbi.com/en/blog/How-to-monitor-IP-addresses-Using-InfluxDB-Telegraf-and-Grafana) to Monitor your hosts using InfluxDB, Telegraf & Granfana. 
+You can find a how to guide in [this article](https://github.com/javadmohebbi/IP2Location/blob/master/GRAFANA-MONITOR-HOST.md) to Monitor your hosts using InfluxDB, Telegraf & Granfana. 
 
 
 # Output
@@ -59,7 +59,7 @@ Currently compiled executables are:
 
 ### NOTE for Linux Users
 1. After download the executable you need to let it to be executable by running ```chmod +x ip2location```.
-2. One of the other thing is if you use ```-t``` option, ip2location will try to send 3 icmp request to provided IP address. So you need to run it as **root**. 
+2. One of the other thing is if you use ```-t``` option, ip2location will try to send 3 icmp request to provided IP address. So you need to run it as **root**.
       - An alternate solution is: [Read Go-Ping Doc](https://github.com/sparrc/go-ping#note-on-linux-support)
       ```
             sudo sysctl -w net.ipv4.ping_group_range="0   2147483647"
@@ -72,7 +72,7 @@ Currently compiled executables are:
 You need to download the Compiled executables from the ** build ** folder or build it from the source. After that, You need to download the latest Lite Package using ```-dl``` option.
 
 ## Get the latest Lite DB
-Run the further command and it will download the latest Lite DB and place it in ```%ProgramFiles\IP2Location\db\%``` (windows) or ```\etc\ip2location\db``` (Linux).
+Run the further command and it will download the latest Lite DB and place it in ```%ProgramFiles%\IP2Location\db\%``` (windows) or ```\etc\ip2location\db``` (Linux).
 You need to run it as **root** (linux) or system **administrator** (windows)
 ```
 # ip2location -dl
@@ -154,9 +154,9 @@ Provided IP (10.5.3.5) is not provided in the local database (local.csv)
 
 
 # Grafana Dashboard
-I've made a simple dashboard for using this tool to monitor your hosts. It might give you a chance to get the idea behind IP2Location Tool. You might want to make more effective dashboards and share it with others. 
+I've made a simple dashboard for using this tool to monitor your hosts. It might give you a chance to get the idea behind IP2Location Tool. You might want to make more effective dashboards and share it with others.
 
-You can download this dashboard from Grafana website. Here is the link to the dashboard: [Grafana IP2Location Dashbaord](https://grafana.com/grafana/dashboards/10964) 
+You can download this dashboard from Grafana website. Here is the link to the dashboard: [Grafana IP2Location Dashbaord](https://grafana.com/grafana/dashboards/10964)
 
  After you import this dashbaord to your Grafana, You might see something like the further Screenshot:
 
