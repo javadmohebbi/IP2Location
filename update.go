@@ -40,7 +40,7 @@ func (wc WriteCounter) PrintProgress() {
 func DownloadDatabase(dbFileName string, path string, tmpPath string) {
 	fmt.Println("Download Started")
 
-	fileURL := "http://download.mjmohebbi.com/ip2location-lite/" + dbFileName + ".ZIP"
+	fileURL := "https://github.com/javadmohebbi/IP2Location/raw/master/dist/IP2LOCATION-LITE-DB11.IPV6.BIN.ZIP"
 	err := DownloadFile(fileURL, tmpPath, path)
 	if err != nil {
 		panic(err)

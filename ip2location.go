@@ -7,22 +7,6 @@ import (
 
 func main() {
 
-	// dir, err := filepath.Abs(filepath.Dir(os.Args[0]))
-	// if err != nil {
-	// 	log.Fatal(err)
-	// }
-
-	// filename := os.Args[1] // get command line first parameter
-
-	// filedirectory := filepath.Dir(filename)
-
-	// thepath, err := filepath.Abs(filedirectory)
-
-	// if err != nil {
-	// 	log.Fatal(err)
-	// }
-
-	// fmt.Println(thepath)
 	dir := ""
 	tmpDir := ""
 	if runtime.GOOS == "windows" {

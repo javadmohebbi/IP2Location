@@ -1,3 +1,4 @@
+
 SET GOOS=windows
 SET GOARCH=amd64
 go build -o ./dist/windows/amd64/ip2location.exe ./ip2location.go ./utils.go ./update.go
@@ -29,5 +30,5 @@ go build -o ./dist/darwin/386/ip2location ./ip2location.go ./utils.go ./update.g
 
 
 
-SET GOOS=windows
+SET GOOS=linux
 SET GOARCH=amd64
